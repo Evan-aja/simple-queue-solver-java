@@ -2,9 +2,14 @@
 yok kelompok :v
 
 baru() (setengah selesai)
+
 status()
+
 selesai()
+
 ukuran()
+
 skip()
+
 
 main() (evan)
