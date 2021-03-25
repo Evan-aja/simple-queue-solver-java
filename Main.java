@@ -16,7 +16,7 @@ class masuk{
 		this.tensi=tensi;
 	}
 	public void status() {
-		
+		//asfafuyiasihfisadfish
 	}
 	public void selesai() {
 		
