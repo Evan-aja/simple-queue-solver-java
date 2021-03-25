@@ -1,15 +1,17 @@
 # ASD-Tugas-1
 yok kelompok :v
 
-baru() (setengah selesai)
+baru() (setengah selesai) (rappie)
 
-status()
+status() (status)
 
-selesai()
+selesai() (rappie)
 
-ukuran()
+ukuran() (ihsan)
 
-skip()
+skip() 
 
 
 main() (evan)
+
+deadline malam minggu 27 maret
