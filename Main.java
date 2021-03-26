@@ -1,5 +1,6 @@
 package tugas_1;
 import java.util.*;
+import java.io.*;
 
 class masuk{
 	QueueArray tunggu=new QueueArray();
@@ -16,7 +17,7 @@ class masuk{
 		this.tensi=tensi;
 	}
 	public void status() {
-		//asfafuyiasihfisadfish
+		
 	}
 	public void selesai() {
 		
@@ -30,10 +31,15 @@ class masuk{
 }
 
 public class Main {
-	public static Scanner scan=new Scanner(System.in);
-	public static void main(String[] args) {
-		masuk learn=new masuk();
-		learn.initUkuran(scan.nextInt());
-		System.out.println(learn.antri.maxLength);
+	public static void main(String[] args) throws IOException {
+        FileReader fr = new FileReader("/dir/milik/anda/tes.txt");
+        Scanner inFile = new Scanner(fr);
+	//ini tes, bukan final
+        while (inFile.hasNext())
+        {
+            String line = inFile.nextLine();
+            System.out.println(line);
+        }
+        inFile.close();
 	}
 }
