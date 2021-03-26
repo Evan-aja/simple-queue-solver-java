@@ -39,7 +39,7 @@ class masuk{
 			else{
 				Listing currentNode = masuk.antri.front;
 				while(currentNode!=null){
-					daftarAntre+=currentNode.data.nama+"^"+currentNode.data.isLansia+"^"+currentNode.data.tensi+" ";
+					daftarAntre+=currentNode.data.nama+" "+currentNode.data.isLansia+" "+currentNode.data.tensi+" ";
 					currentNode=currentNode.next;
 				}
 			}
@@ -50,7 +50,7 @@ class masuk{
 			}
 			else{
 				for(int i =0;i<masuk.tunggu.itemCount+1;i++){
-					daftarTunggu+=masuk.tunggu.learn[i].nama+"^"+masuk.tunggu.learn[i].isLansia+"^"+masuk.tunggu.learn[i].tensi+" ";
+					daftarTunggu+=masuk.tunggu.learn[i].nama+" "+masuk.tunggu.learn[i].isLansia+" "+masuk.tunggu.learn[i].tensi+" ";
 				}
 			}
 			return daftarAntre+"\n"+daftarTunggu;
