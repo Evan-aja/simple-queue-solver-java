@@ -1,7 +1,8 @@
 # ASD-Tugas-1
 yok kelompok :v
 
-#please read
+# please read
+
 clone repo, tes tes.txt di komputer masing masing untuk melihat output di komputer masing masing
 
 baru() (setengah selesai) (rappie)
