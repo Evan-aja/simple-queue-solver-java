@@ -1,5 +1,6 @@
 package tugas_1;
 import java.util.*;
+import java.io.*;
 
 class masuk{
 	QueueArray tunggu=new QueueArray();
@@ -69,10 +70,15 @@ class masuk{
 }
 
 public class Main {
-	public static Scanner scan=new Scanner(System.in);
 	public static void main(String[] args) {
-		masuk learn=new masuk();
-		learn.initUkuran(scan.nextInt());
-		System.out.println(learn.antri.maxLength);
+		//this is for testing on your own computer
+		FileReader fr = new FileReader("/dir/milik/anda/tes.txt");
+        	Scanner inFile = new Scanner(fr);
+        	while (inFile.hasNext())
+	        {
+	            String line = inFile.nextLine();
+	            System.out.println(line);
+	        }
+	        inFile.close();
 	}
 }
