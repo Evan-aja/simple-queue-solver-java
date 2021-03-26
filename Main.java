@@ -19,9 +19,15 @@ class masuk{
 		this.nama=nama;
 		this.usia=usia;
 		this.tensi=tensi;
-		//manggil boolean buat this.baru nya
-		checkIsBolehVaksin();
+		//manggil boolean buat this.baru nya && sout
 		checkIsLansia();
+		if (!checkIsBolehVaksin()){
+			System.out.println(tolakPasien());
+		}else if (antri.learn.size==antri.maxLength){
+			System.out.println(tungguPasien());
+		}else {
+			System.out.println(antrePasien());
+		}
 	}
 	public static void status() {
 		// CONTOH RETURN
@@ -57,7 +63,7 @@ class masuk{
 	
 	
 		}
-	public void selesai(int N) {
+	public void selesai(int N) throws Exception {
 		/*
 		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
 		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
@@ -71,10 +77,10 @@ class masuk{
 // 			trus diapus ampe < N
 // 			panggil methodnya..
 // 			...
-			antri.dequeue();
-			System.out.println();//print klo dah keluar
-			//"SELESAI_VAKSIN+" "+this.name+" "+...
-		}
+				antri.dequeue();
+				System.out.println();//print klo dah keluar
+				//"SELESAI_VAKSIN+" "+this.name+" "+...
+			}
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
@@ -89,14 +95,14 @@ class masuk{
 
 		//init buat ngapus array
 		if (!antri.isEmpty()) {
-			for (int i = 0; i < N; i++) {
+			for (int i = 0; i < antre.length(); i++) {
 // 			manggil QueueArray
 // 			trus diapus ampe < N
 // 			panggil methodnya..
 // 			...
-			System.out.println();//print klo dah keluar
-			//"SELESAI_VAKSIN+" "+this.name+" "+...
-		}
+				System.out.println();//print klo dah keluar
+				//"SELESAI_VAKSIN+" "+this.name+" "+...
+			}
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
@@ -137,10 +143,10 @@ class masuk{
 		return "TOLAK"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
 	}
 	public String antrePasien(){
-		return "ANTRE"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
+		return "ANTRE"+" "+this.nama;
 	}
 	public String tungguPasien(){
-		return "TUNGGU"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
+		return "TUNGGU"+" "+this.nama;
 	}
 }
 public class Main {
