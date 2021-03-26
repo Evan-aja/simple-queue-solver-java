@@ -37,9 +37,9 @@ class masuk{
 				daftarAntre+="-";
 			}
 			else{
-				Node currentNode = masuk.antri.front;
+				Listing currentNode = masuk.antri.front;
 				while(currentNode!=null){
-					daftarAntre+=currentNode.nama+"^"+currentNode.isLansia+"^"+currentNode.tensi+" ";
+					daftarAntre+=currentNode.data.nama+"^"+currentNode.data.isLansia+"^"+currentNode.data.tensi+" ";
 					currentNode=currentNode.next;
 				}
 			}
