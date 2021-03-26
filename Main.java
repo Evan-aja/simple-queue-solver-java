@@ -103,10 +103,10 @@ class masuk{
 // 	kelima tulisan pasien tunggu
 	
 	public String tulisanTensi(){
-		return (this.isBolehVaksin ? "TENSI_BOLEH_DIVAKSIN":"TENSI_TIDAKBOLEH_DIVAKSIN");
+		return (this.checkIsBolehVaksin() ? "TENSI_BOLEH_DIVAKSIN":"TENSI_TIDAKBOLEH_DIVAKSIN");
 	}
 	public String tulisanLansia(){
-		return (this.isLansia?"LANSIA":"BUKAN_LANSIA");
+		return (this.checkIsLansia()?"LANSIA":"BUKAN_LANSIA");
 	}
 	public String tolakPasien(){
 		return "TOLAK"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
