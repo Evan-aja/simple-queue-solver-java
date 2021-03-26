@@ -57,7 +57,7 @@ class masuk{
 	
 	
 		}
-	public void selesai(int N) {//ini tolong diubah jadi selesai(String nama)
+	public void selesai(int N) {
 		/*
 		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
 		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
@@ -67,18 +67,43 @@ class masuk{
 		//init buat ngapus array
 		if (!antri.isEmpty()) {
 			for (int i = 0; i < N; i++) {
-// 				manggil QueueArray
-// 				trus diapus ampe < N
-// 				panggil methodnya..
-// 				...
-				antri.dequeue();
-				System.out.println();//print klo dah keluar
-				//"SELESAI_VAKSIN+" "+this.name+" "+...
-			}
+// 			manggil QueueArray
+// 			trus diapus ampe < N
+// 			panggil methodnya..
+// 			...
+			antri.dequeue();
+			System.out.println();//print klo dah keluar
+			//"SELESAI_VAKSIN+" "+this.name+" "+...
+		}
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
 	}
+	//buat STRING_NAMA
+	public void selesai(String  x) {
+		/*
+		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
+		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
+		2 orang pertama yang ada di antrean.
+		 */
+
+		//init buat ngapus array
+		if (!antri.isEmpty()) {
+			for (int i = 0; i < N; i++) {
+// 			manggil QueueArray
+// 			trus diapus ampe < N
+// 			panggil methodnya..
+// 			...
+			System.out.println();//print klo dah keluar
+			//"SELESAI_VAKSIN+" "+this.name+" "+...
+		}
+		}else{
+			System.out.println("ANTRE KOSONG");
+		}
+	}
+	
+	
+	
 	public void ukuran(int ukuran) {
 
 	}
