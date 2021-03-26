@@ -7,8 +7,8 @@ class masuk{
 	String nama,antre;
 	int usia,tensi;
 	static int ukuran;
-	boolean isBolehVaksin; /*buat check boleh di vaksin atau engga*/
-	boolean isLansia;     /*buat check lansia atau bukan*/
+	boolean isBolehVaksin; /*buat check this boleh di vaksin atau engga*/
+	boolean isLansia;     /*buat check this lansia atau bukan*/
 
 
 	public void initUkuran(int ukuran) {
