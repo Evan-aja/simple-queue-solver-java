@@ -23,7 +23,7 @@ class masuk{
 		checkIsBolehVaksin();
 		checkIsLansia();
 	}
-	public static String status() {
+	public static void status() {
 		// CONTOH RETURN
 			//DAFTAR_ANTRE Ana^BUKAN_LANSIA^110 Caca^BUKAN_LANSIA^140
 			// DAFTAR_TUNGGU Dodo^BUKAN_LANSIA^120	
@@ -53,7 +53,7 @@ class masuk{
 					daftarTunggu+=masuk.tunggu.learn[i].nama+" "+masuk.tunggu.learn[i].isLansia+" "+masuk.tunggu.learn[i].tensi+" ";
 				}
 			}
-			return daftarAntre+"\n"+daftarTunggu;
+			System.out.println(daftarAntre+"\n"+daftarTunggu) ;
 	
 	
 		}
