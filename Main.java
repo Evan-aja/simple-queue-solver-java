@@ -23,9 +23,40 @@ class masuk{
 		checkIsBolehVaksin();
 		checkIsLansia();
 	}
-	public void status() {
-		//asfafuyiasihfisadfish
-	}
+	public static String status() {
+		// CONTOH RETURN
+			//DAFTAR_ANTRE Ana^BUKAN_LANSIA^110 Caca^BUKAN_LANSIA^140
+			// DAFTAR_TUNGGU Dodo^BUKAN_LANSIA^120	
+		// KASUS KOSONG
+			// Jika Queue (Ruang Antre atau Daftar Tunggu) kosong, cukup
+			// cetak "-" . Contoh:
+			// DAFTAR_ ANTRE <spasi> -
+			// DAFTAR_TUNGGU <spasi> -
+			String daftarAntre = "DAFTAR_ANTRE ";
+			if(masuk.antri.isEmpty()){
+				daftarAntre+="-";
+			}
+			else{
+				Node currentNode = masuk.antri.front;
+				while(currentNode!=null){
+					daftarAntre+=currentNode.nama+"^"+currentNode.isLansia+"^"+currentNode.tensi+" ";
+					currentNode=currentNode.next;
+				}
+			}
+			String daftarTunggu = "DAFTAR_TUNGGU ";
+			
+			if(masuk.tunggu.isEmpty()){
+				daftarTunggu+="-";
+			}
+			else{
+				for(int i =0;i<masuk.tunggu.itemCount+1;i++){
+					daftarTunggu+=masuk.tunggu.learn[i].nama+"^"+masuk.tunggu.learn[i].isLansia+"^"+masuk.tunggu.learn[i].tensi+" ";
+				}
+			}
+			return daftarAntre+"\n"+daftarTunggu;
+	
+	
+		}
 	public void selesai() {
 
 	}
