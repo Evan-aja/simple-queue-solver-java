@@ -57,7 +57,7 @@ class masuk{
 	
 	
 		}
-	public void selesai(int N) {
+	public void selesai(int N) {//ini tolong diubah jadi selesai(String nama)
 		/*
 		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
 		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
@@ -67,10 +67,10 @@ class masuk{
 		//init buat ngapus array
 		if (!antri.isEmpty()) {
 			for (int i = 0; i < N; i++) {
-				/*manggil QueueArray
-				trus diapus ampe < N
-				panggil methodnya..
-				...*/
+// 				manggil QueueArray
+// 				trus diapus ampe < N
+// 				panggil methodnya..
+// 				...
 				antri.dequeue();
 				System.out.println();//print klo dah keluar
 				//"SELESAI_VAKSIN+" "+this.name+" "+...
@@ -79,29 +79,29 @@ class masuk{
 			System.out.println("ANTRE KOSONG");
 		}
 	}
-	public void ukuran() {
+	public void ukuran(int ukuran) {
 
 	}
-	public void skip() {
+	public void skip(String nama) {
 
 	}
-	/*check kondisi orang yang masuk
-	pertama boleh vaksn atau engga
-	kedua lansia atau engga
-	 */
+// 	check kondisi orang yang masuk
+// 	pertama boleh vaksn atau engga
+// 	kedua lansia atau engga
+	
 	public boolean checkIsBolehVaksin(){
 		return this.tensi<180;
 	}
 	public boolean checkIsLansia(){
 		return this.usia>=60;
 	}
-	/*String buat tulisan2
-	pertama tulisan vaksin
-	kedua tulisan lansia
-	ketiga tulisan pasien ditolak
-	keempat tulisan pasien antri
-	kelima tulisan pasien tunggu
-	 */
+// 	String buat tulisan2
+// 	pertama tulisan vaksin
+// 	kedua tulisan lansia
+// 	ketiga tulisan pasien ditolak
+// 	keempat tulisan pasien antri
+// 	kelima tulisan pasien tunggu
+	
 	public String tulisanTensi(){
 		return (this.isBolehVaksin ? "TENSI_BOLEH_DIVAKSIN":"TENSI_TIDAKBOLEH_DIVAKSIN");
 	}
@@ -118,17 +118,38 @@ class masuk{
 		return "TUNGGU"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
 	}
 }
-
 public class Main {
-	public static void main(String[] args) throws Exception {
-		//this is for testing on your own computer
-		FileReader fr = new FileReader("/dir/milik/anda/tes.txt");
-        	Scanner inFile = new Scanner(fr);
-        	while (inFile.hasNext())
-	        {
-	            String line = inFile.nextLine();
-	            System.out.println(line);
-	        }
-	        inFile.close();
+	public static void main(String[] args) throws IOException {
+		masuk learn=new masuk();
+        FileReader fr = new FileReader("/direktori/file/yang/di/test/tes.txt");
+        Scanner inFile = new Scanner(fr);
+        while (inFile.hasNext())
+        {
+            String line = inFile.nextLine();
+            if(line.length()<4) {
+            	int a=Integer.parseInt(line);
+            	learn.initUkuran(a);
+            }else {
+            	String[] words = line.trim().split(" ");
+            	if(words[0].equalsIgnoreCase("Baru")) {
+            		String nama=words[1];
+                	int usia=Integer.parseInt(words[2]);
+                	int tensi=Integer.parseInt(words[3]);
+                	learn.baru(nama, usia, tensi);
+            	}else if(words[0].equalsIgnoreCase("status")) {
+            		learn.status();
+            	}else if(words[0].equalsIgnoreCase("selesai")) {
+            		String nama=words[1];
+            		learn.selesai(nama);
+            	}else if(words[0].equalsIgnoreCase("ukuran")) {
+            		int ukuran=Integer.parseInt(words[1]);
+            		learn.ukuran(ukuran);
+            	}else if(words[0].equalsIgnoreCase("skip")) {
+            		String nama=words[1];
+            		learn.skip(nama);
+            	}
+            }
+        }
+        inFile.close();
 	}
 }
