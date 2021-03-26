@@ -87,22 +87,15 @@ class masuk{
 	}
 	//buat STRING_NAMA
 	public void selesai(String  x) {
-		/*
-		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
-		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
-		2 orang pertama yang ada di antrean.
-		 */
 
-		//init buat ngapus array
 		if (!antri.isEmpty()) {
-			for (int i = 0; i < antre.length(); i++) {
 // 			manggil QueueArray
-// 			trus diapus ampe < N
-// 			panggil methodnya..
-// 			...
-				System.out.println();//print klo dah keluar
-				//"SELESAI_VAKSIN+" "+this.name+" "+...
-			}
+// 			ampe namanya sama
+			antri.learn.removeByData(x);
+			System.out.print("SELESAI_VAKSIN"+x+" ");//print klo dah keluar
+			
+			//"SELESAI_VAKSIN+" "+this.name+" "+...
+
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
