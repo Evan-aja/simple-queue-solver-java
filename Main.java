@@ -57,7 +57,7 @@ class masuk{
 	
 	
 		}
-	public void selesai() {
+	public void selesai(int N) {
 		/*
 		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
 		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
