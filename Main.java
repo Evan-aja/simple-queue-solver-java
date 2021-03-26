@@ -3,8 +3,8 @@ import java.util.*;
 import java.io.*;
 
 class masuk{
-	QueueArray tunggu=new QueueArray();
-	QueueLinkedList antri;
+	static QueueArray tunggu=new QueueArray();
+	static QueueLinkedList antri;
 	String nama,antre;
 	int usia,tensi;
 	static int ukuran;
