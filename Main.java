@@ -120,7 +120,7 @@ class masuk{
 }
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//this is for testing on your own computer
 		FileReader fr = new FileReader("/dir/milik/anda/tes.txt");
         	Scanner inFile = new Scanner(fr);
