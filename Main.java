@@ -52,9 +52,11 @@ class masuk{
 			}
 			else{
 				Listing currentNode = antri.front;
+				masuk orang = (masuk)currentNode.data;
 				while(currentNode!=null){
-					daftarAntre+=currentNode.data.nama+"^"+currentNode.data.isLansia+"^"+currentNode.data.tensi+" ";
+					daftarAntre+=orang.nama+"^"+orang.tulisanLansia()+"^"+orang.tensi+" ";
 					currentNode=currentNode.next;
+					orang = (masuk)currentNode.data;
 				}
 			}
 			String daftarTunggu = "DAFTAR_TUNGGU ";
@@ -63,8 +65,9 @@ class masuk{
 				daftarTunggu+="-";
 			}
 			else{
+				masuk[] orangs = (masuk)masuk.tunggu.learn;
 				for(int i =0;i<masuk.tunggu.itemCount+1;i++){
-					daftarTunggu+=masuk.tunggu.learn[i].nama+"^"+masuk.tunggu.learn[i].isLansia+"^"+masuk.tunggu.learn[i].tensi+" ";
+					daftarTunggu+=orangs[i].nama+"^"+orangs[i].tulisanLansia()+"^"+orangs[i].tensi+" ";
 				}
 			}
 			System.out.println(daftarAntre+"\n"+daftarTunggu) ;
