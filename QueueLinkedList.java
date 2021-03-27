@@ -1,69 +1,57 @@
 package tugas_1;
 
-public class QueueArray {
-	private static final int initSize=1;
-	Object[] learn;
+public class QueueLinkedList {
+	DoublyLinkedList learn=new DoublyLinkedList();
+	int maxLength=0,usia,tensi;
+	Listing front,rear;
 	String nama;
-	int front,rear,itemCount,usia,tensi;
 	
-	public QueueArray() {
+	public QueueLinkedList(int a) {
+		this.maxLength=a;
 		makeEmpty();
 	}
-	
-	public QueueArray(String nama, int usia, int tensi) {
+	public QueueLinkedList(String nama,int usia, int tensi) {
 		enqueue(nama);
 		this.usia=usia;
 		this.tensi=tensi;
 	}
-	public boolean isFull() {
-		return itemCount==learn.length-1;
+	public void makeEmpty() {
+		learn.makeEmpty();
+		fhrt();
+	}
+	public void fhrt() {
+		front=learn.head;
+		rear=learn.tail;
 	}
 	public boolean isEmpty() {
-		return itemCount==0;
-	}
-	public void makeEmpty() {
-		learn=new Object[initSize];
-		front=0;
-		rear=-1;
-		itemCount=0;
-	}
-	public void arrayDoubling() {
-		Object[] tmp=learn;
-		learn=new Object[tmp.length*2];
-		System.arraycopy(tmp, 0, learn, 0, tmp.length);
+		return learn.isEmpty();
 	}
 	public void enqueue(Object x) {
-		if(!isFull()) {
-			learn[++rear]=x;
-			itemCount++;	
+		if(learn.size<=maxLength) {
+			learn.addLast(x);
+			fhrt();
 		}else {
-			arrayDoubling();
-			learn[++rear]=x;
-			itemCount++;
+			System.out.println("List penuh");
 		}
 	}
 	public Object dequeue() throws Exception{
-		if(!isEmpty()) {
-			Object tmp=learn[front];
-			for(int i=0;i<itemCount;i++)
-				learn[i]=learn[i+1];
-			learn[rear--]=null;
-			itemCount--;
+		if(!isEmpty()){
+			Object tmp=front.data;
+			learn.removeFirst();
+			fhrt();
 			return tmp;
 		}else {
-			throw new Exception("quewe kosong, gada yang keluar");
+			throw new Exception("List kosong");
 		}
 	}
 	public Object peek() throws Exception{
-		if(!isEmpty()) {
-			return learn[front];
+		if(!isEmpty()){
+			return front.data;
 		}else {
-			throw new Exception("gaada isinya, mau ngintip apa?");
+			throw new Exception("List kosong");
 		}
 	}
 	public void print() {
-		for(int i=0;i<itemCount;i++) {
-			System.out.print(learn[i] + " ");
-		}
+		learn.printToTail();
 	}
 }
