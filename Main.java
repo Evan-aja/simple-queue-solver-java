@@ -154,37 +154,35 @@ public class Main {
         while (inFile.hasNext())
         {
             String line = inFile.nextLine();
-            if(line.length()<4) {
-            	int a=Integer.parseInt(line);
-            	learn.initUkuran(a);
-            }else {
-            	String[] words = line.trim().split(" ");
-            	if(words[0].equalsIgnoreCase("Baru")) {
-            		String nama=words[1];
-                	int usia=Integer.parseInt(words[2]);
-                	int tensi=Integer.parseInt(words[3]);
-                	learn.baru(nama, usia, tensi);
-            	}else if(words[0].equalsIgnoreCase("status")) {
-            		learn.status();
-            	}else if(words[0].equalsIgnoreCase("selesai")) {
-            		if(words[1].length()<3) {
-            			int index=Integer.parseInt(words[1]);
-            			try{
-            				learn.selesai(index);
-            			}catch(Exception e) {
-            				System.err.println(e.getMessage());
-            			}
-            		}else if(words[1].length()>=3) {
-            			String nama=words[1];
-            			learn.selesai(nama);
+            String[] words = line.trim().split(" ");
+            if(words[0].length()<=3) {
+            	int ukuran=Integer.parseInt(words[0]);
+            	learn.initUkuran(ukuran);
+            }else if(words[0].equalsIgnoreCase("Baru")) {
+            	String nama=words[1];
+               	int usia=Integer.parseInt(words[2]);
+               	int tensi=Integer.parseInt(words[3]);
+               	learn.baru(nama, usia, tensi);
+            }else if(words[0].equalsIgnoreCase("status")) {
+            	learn.status();
+            }else if(words[0].equalsIgnoreCase("selesai")) {
+            	if(words[1].length()<=2) {
+            		int index=Integer.parseInt(words[1]);
+            		try{
+            			learn.selesai(index);
+            		}catch(Exception e) {
+            			System.err.println(e.getMessage());
             		}
-            	}else if(words[0].equalsIgnoreCase("ukuran")) {
-            		int ukuran=Integer.parseInt(words[1]);
-            		learn.ukuran(ukuran);
-            	}else if(words[0].equalsIgnoreCase("skip")) {
+            	}else if(words[1].length()>=3) {
             		String nama=words[1];
-            		learn.skip(nama);
+            		learn.selesai(nama);
             	}
+            }else if(words[0].equalsIgnoreCase("ukuran")) {
+            	int ukuran=Integer.parseInt(words[1]);
+            	learn.ukuran(ukuran);
+            }else if(words[0].equalsIgnoreCase("skip")) {
+            	String nama=words[1];
+            	learn.skip(nama);
             }
         }
         inFile.close();
