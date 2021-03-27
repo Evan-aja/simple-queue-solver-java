@@ -100,7 +100,7 @@ class masuk{
 // 			manggil QueueArray
 // 			ampe namanya sama
 			antri.learn.removeByData(x);
-			System.out.print("SELESAI_VAKSIN"+x+" ");//print klo dah keluar
+			System.out.print("SELESAI_VAKSIN"+x+" \n");//print klo dah keluar
 			
 			//"SELESAI_VAKSIN+" "+this.name+" "+...
 
@@ -112,7 +112,8 @@ class masuk{
 	
 	
 	public void ukuran(int ukuran) {
-
+		System.out.println("SUKSES UBAH " + antri.maxLength + " " + ukuran);
+		antri.maxLength=ukuran;
 	}
 	public void skip(String nama) {
 
