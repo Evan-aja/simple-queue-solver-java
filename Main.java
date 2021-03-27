@@ -3,11 +3,11 @@ import java.util.*;
 import java.io.*;
 
 class masuk{
-	static QueueArray tunggu=new QueueArray();
+	static QueueArray tunggu;
 	static QueueLinkedList antri;
-	String nama,antre;
-	int usia,tensi;
 	static int ukuran;
+	String nama;
+	int usia, tensi;
 	boolean isBolehVaksin; /*buat check this boleh di vaksin atau engga*/
 	boolean isLansia;     /*buat check this lansia atau bukan*/
 
@@ -24,12 +24,15 @@ class masuk{
 		if (!checkIsBolehVaksin()){
 			System.out.println(tolakPasien());
 		}else if (antri.learn.size==antri.maxLength){
-			System.out.println(tungguPasien());
-		}else {
+			antri=new QueueLinkedList(nama,usia,tensi);
+			System.out.println(antri.nama);
 			System.out.println(antrePasien());
+		}else {
+			tunggu=new QueueArray(nama,usia,tensi);
+			System.out.println(tungguPasien());
 		}
 	}
-	public static void status() {
+	public void status() {
 		// CONTOH RETURN
 			//DAFTAR_ANTRE Ana^BUKAN_LANSIA^110 Caca^BUKAN_LANSIA^140
 			// DAFTAR_TUNGGU Dodo^BUKAN_LANSIA^120	
@@ -43,7 +46,7 @@ class masuk{
 				daftarAntre+="-";
 			}
 			else{
-				Listing currentNode = masuk.antri.front;
+				Listing currentNode = antri.front;
 				while(currentNode!=null){
 					daftarAntre+=currentNode.data.nama+"^"+currentNode.data.isLansia+"^"+currentNode.data.tensi+" ";
 					currentNode=currentNode.next;
@@ -142,10 +145,11 @@ class masuk{
 		return "TUNGGU"+" "+this.nama;
 	}
 }
+
 public class Main {
 	public static void main(String[] args) throws IOException {
 		masuk learn=new masuk();
-        FileReader fr = new FileReader("/direktori/file/yang/di/test/tes.txt");
+        FileReader fr = new FileReader("../ASD/src/tugas_1/tes.txt");
         Scanner inFile = new Scanner(fr);
         while (inFile.hasNext())
         {
@@ -165,7 +169,11 @@ public class Main {
             	}else if(words[0].equalsIgnoreCase("selesai")) {
             		if(words[1].length()<3) {
             			int index=Integer.parseInt(words[1]);
-            			learn.selesai(index);
+            			try{
+            				learn.selesai(index);
+            			}catch(Exception e) {
+            				System.err.println(e.getMessage());
+            			}
             		}else if(words[1].length()>=3) {
             			String nama=words[1];
             			learn.selesai(nama);
