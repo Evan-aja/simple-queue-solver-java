@@ -3,10 +3,17 @@ package tugas_1;
 public class QueueArray {
 	private static final int initSize=1;
 	Object[] learn;
-	int front,rear,itemCount;
+	String nama;
+	int front,rear,itemCount,usia,tensi;
 	
 	public QueueArray() {
 		makeEmpty();
+	}
+	
+	public QueueArray(String nama, int usia, int tensi) {
+		enqueue(nama);
+		this.usia=usia;
+		this.tensi=tensi;
 	}
 	public boolean isFull() {
 		return itemCount==learn.length-1;
