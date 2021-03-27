@@ -8,10 +8,13 @@ class masuk{
 	static int ukuran;
 	String nama;
 	int usia, tensi;
-	boolean isBolehVaksin; /*buat check this boleh di vaksin atau engga*/
-	boolean isLansia;     /*buat check this lansia atau bukan*/
 
-
+	masuk(){
+		/*ini buat invoke QueueArray biar ga null
+		ntar eror soalnya klo ga di set
+	 	*/
+		tunggu = new QueueArray();
+	}
 	public void initUkuran(int ukuran) {
 		antri=new QueueLinkedList(ukuran);
 	}
@@ -19,16 +22,18 @@ class masuk{
 		this.nama=nama;
 		this.usia=usia;
 		this.tensi=tensi;
-		//manggil boolean buat this.baru nya && sout
-		checkIsLansia();
+
+		//buat cek masuk ke baris mana
 		if (!checkIsBolehVaksin()){
 			System.out.println(tolakPasien());
-		}else if (antri.learn.size==antri.maxLength){
-			antri=new QueueLinkedList(nama,usia,tensi);
-			System.out.println(antri.nama);
-			System.out.println(antrePasien());
-		}else {
-			tunggu=new QueueArray(nama,usia,tensi);
+		}else if (antri.learn.size!=antri.maxLength){
+			antri.enqueue(this.nama,this.usia,this.tensi);
+			System.out.println(antrePasien()); //45 42 | 60
+			antri.checkPriority();
+		}else if (this.usia>=60){
+			antri.lansiaDarurat(this.nama,this.usia,this.tensi,tunggu);
+		}else{
+			antri.enqueue(this.nama,this.usia,this.tensi);
 			System.out.println(tungguPasien());
 		}
 	}
