@@ -2,12 +2,18 @@ package tugas_1;
 
 public class QueueLinkedList {
 	DoublyLinkedList learn=new DoublyLinkedList();
-	int maxLength=0;
+	int maxLength=0,usia,tensi;
 	Listing front,rear;
+	String nama;
 	
 	public QueueLinkedList(int a) {
 		this.maxLength=a;
 		makeEmpty();
+	}
+	public QueueLinkedList(String nama,int usia, int tensi) {
+		enqueue(nama);
+		this.usia=usia;
+		this.tensi=tensi;
 	}
 	public void makeEmpty() {
 		learn.makeEmpty();
