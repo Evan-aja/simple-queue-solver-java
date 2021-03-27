@@ -163,8 +163,13 @@ public class Main {
             	}else if(words[0].equalsIgnoreCase("status")) {
             		learn.status();
             	}else if(words[0].equalsIgnoreCase("selesai")) {
-            		String nama=words[1];
-            		learn.selesai(nama);
+            		if(words[1].length()<3) {
+            			int index=Integer.parseInt(words[1]);
+            			learn.selesai(index);
+            		}else if(words[1].length()>=3) {
+            			String nama=words[1];
+            			learn.selesai(nama);
+            		}
             	}else if(words[0].equalsIgnoreCase("ukuran")) {
             		int ukuran=Integer.parseInt(words[1]);
             		learn.ukuran(ukuran);
