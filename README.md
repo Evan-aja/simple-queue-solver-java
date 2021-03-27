@@ -11,9 +11,9 @@ status() (status)
 
 selesai() (rappie)
 
-ukuran() (ihsan)
+ukuran() (ihsan) (udah Evan)
 
-skip() 
+skip() (ihsan)
 
 
 main() (evan)
