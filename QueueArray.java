@@ -3,8 +3,9 @@ package tugas_1;
 public class QueueArray {
 	private static final int initSize=1;
 	Object[] learn;
-	String nama;
-	int front,rear,itemCount,usia,tensi;
+	int[]umur;
+	int[]tensi;
+	int front,rear,itemCount;
 	
 	public QueueArray() {
 		makeEmpty();
@@ -23,6 +24,8 @@ public class QueueArray {
 	}
 	public void makeEmpty() {
 		learn=new Object[initSize];
+		umur = new int[initSize];
+		tensi = new int[initSize];
 		front=0;
 		rear=-1;
 		itemCount=0;
@@ -30,15 +33,23 @@ public class QueueArray {
 	public void arrayDoubling() {
 		Object[] tmp=learn;
 		learn=new Object[tmp.length*2];
+		umur = new int[tmpp.length*2];
+		tensi = new int[tmppp.length*2];
 		System.arraycopy(tmp, 0, learn, 0, tmp.length);
+		System.arraycopy(tmpp, 0, umur, 0, tmpp.length);
+		System.arraycopy(tmppp, 0, tensi, 0, tmppp.length);
 	}
-	public void enqueue(Object x) {
+	public void enqueue(Object x,int usia, int tensi) {
 		if(!isFull()) {
 			learn[++rear]=x;
+			umur[rear]=usia;
+			this.tensi[rear]=tensi;
 			itemCount++;	
 		}else {
 			arrayDoubling();
 			learn[++rear]=x;
+			umur[rear]=usia;
+			this.tensi[rear]=tensi;
 			itemCount++;
 		}
 	}
