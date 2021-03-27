@@ -199,4 +199,22 @@ public class DoublyLinkedList {
 			p=p.next;
 		}
 	}
+	
+	public Object getNamaByIndex(int x){
+		Listing p = head;
+		int i =0;
+		while (p!=null){
+			if (i==x){
+				break;
+			}
+			p=p.next;
+			i++;
+		}
+		try {
+			return p.data;
+		}catch (Exception e){
+			return "";
+		}
+	}
+	
 }
