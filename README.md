@@ -4,6 +4,7 @@ yok kelompok :v
 # please read
 
 clone repo, tes tes.txt di komputer masing masing untuk melihat output di komputer masing masing
+cek lgi semua codenya gw ubaaah
 
 baru() (setengah selesai) (rappie)
 
