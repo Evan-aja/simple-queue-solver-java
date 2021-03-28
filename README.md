@@ -1,11 +1,11 @@
 # ASD-Tugas-1
+\n cek lgi semua codenya gw ubaaah (rappie)
 yok kelompok :v
 
 # please read
 
 clone repo, tes tes.txt di komputer masing masing untuk melihat output di komputer masing masing
 
-\n cek lgi semua codenya gw ubaaah (rappie)
 
 baru() (setengah selesai) (rappie)
 
