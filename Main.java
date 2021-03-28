@@ -33,7 +33,7 @@ class masuk{
 		}else if (this.usia>=60){
 			antri.lansiaDarurat(this.nama,this.usia,this.tensi,tunggu);
 		}else{
-			antri.enqueue(this.nama,this.usia,this.tensi);
+			tunggu.enqueue(this.nama,this.usia,this.tensi);
 			System.out.println(tungguPasien());
 		}
 	}
