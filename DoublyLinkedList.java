@@ -1,6 +1,4 @@
 package tugas_1;
-
-
 class Listing{
 	Object data;
 	Listing next;
@@ -139,36 +137,48 @@ public class DoublyLinkedList {
 			size--;
 		}
 	}
-	public void removeLast() {
+	public Object removeLast() {
 		if(!isEmpty()) {
 			if(head==tail) {
+				Object temp = head.data;
 				head=tail=null;
+				size--;
+				return temp;
 			}else {
+				Object temp = tail.data;
 				tail.prev.next=null;
 				tail=tail.prev;
+				size--;
+				return temp;
 			}
-			size--;
 		}
+		return null;
 	}
-	public void removeByData(Object x) {
-		if(head.data.equals(x)) {
-			removeFirst();
-		}else if(tail.data.equals(x)) {
-			removeLast();
-		}else {
-			Listing search=head;
-			while(search.data != x) {
-				if(search.data.equals(x)) {
-					break;
-				}
-				search=search.next;
-			}
-			search.next.prev=search.prev;
-			search.prev.next=search.next;
-			size--;
-		}
-	}
+//	public int reoveByData(Object x) {
+//		int i = 0;
+//		if(head.data.equals(x)) {
+//			removeFirst();
+//			return i;
+//		}else if(tail.data.equals(x)) {
+//			removeLast();
+//			return size-1;
+//		}else {
+//			Listing search=head;
+//			while(search.data != x) {
+//				if(search.data.equals(x)) {
+//					break;
+//				}
+//				search=search.next;
+//				i++;
+//			}
+//			search.next.prev=search.prev;
+//			search.prev.next=search.next;
+//			size--;
+//			return i;
+//		}
+//	}
 	public void removeByIndex(int x) {
+		x+=1;
 		Listing search=head;
 		if(x==1) {
 			removeFirst();
@@ -199,7 +209,6 @@ public class DoublyLinkedList {
 			p=p.next;
 		}
 	}
-	
 	public Object getNamaByIndex(int x){
 		Listing p = head;
 		int i =0;
@@ -216,5 +225,4 @@ public class DoublyLinkedList {
 			return "";
 		}
 	}
-	
 }
