@@ -10,12 +10,6 @@ public class QueueArray {
 	public QueueArray() {
 		makeEmpty();
 	}
-	
-	public QueueArray(String nama, int usia, int tensi) {
-		enqueue(nama);
-		this.usia=usia;
-		this.tensi=tensi;
-	}
 	public boolean isFull() {
 		return itemCount==learn.length-1;
 	}
@@ -32,6 +26,8 @@ public class QueueArray {
 	}
 	public void arrayDoubling() {
 		Object[] tmp=learn;
+		int[] tmpp = umur;
+		int[] tmppp = tensi;
 		learn=new Object[tmp.length*2];
 		umur = new int[tmpp.length*2];
 		tensi = new int[tmppp.length*2];
@@ -44,7 +40,7 @@ public class QueueArray {
 			learn[++rear]=x;
 			umur[rear]=usia;
 			this.tensi[rear]=tensi;
-			itemCount++;	
+			itemCount++;
 		}else {
 			arrayDoubling();
 			learn[++rear]=x;
@@ -56,8 +52,11 @@ public class QueueArray {
 	public Object dequeue() throws Exception{
 		if(!isEmpty()) {
 			Object tmp=learn[front];
-			for(int i=0;i<itemCount;i++)
-				learn[i]=learn[i+1];
+			for(int i=0;i<itemCount;i++) {
+				learn[i] = learn[i + 1];
+				umur[i]=umur[i+1];
+				tensi[i]=tensi[i+1];
+			}
 			learn[rear--]=null;
 			itemCount--;
 			return tmp;
