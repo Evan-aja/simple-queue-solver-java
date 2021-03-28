@@ -36,7 +36,7 @@ class masuk{
 			tunggu.enqueue(this.nama,this.usia,this.tensi);
 			System.out.println(tungguPasien());
 		}
-	}
+	}		
 	public void status() {
 		// CONTOH RETURN
 			//DAFTAR_ANTRE Ana^BUKAN_LANSIA^110 Caca^BUKAN_LANSIA^140
@@ -74,49 +74,50 @@ class masuk{
 	
 	
 		}
-	public void selesai(int N) throws Exception {
-		/*
-		Menghapus (selesai memvaksin) sebanyak N penerima vaksin di
-		Ruang Antre sesuai urutan. Misalnya N=2, maka selesai memvaksin
-		2 orang pertama yang ada di antrean.
-		 */
+		public void selesai(int N) throws Exception {
 
 		//init buat ngapus array
-		if (!antri.isEmpty()) {
-			for (int i = 0; i < N; i++) {
 // 			manggil QueueArray
 // 			trus diapus ampe < N
 // 			panggil methodnya..
 // 			...
+		//"SELESAI_VAKSIN+" "+this.name+" "+...
+		if (!antri.isEmpty()) {
+			for (int i = 0; i < N; i++) {
+				System.out.print(" "+antri.learn.head.data);
 				antri.dequeue();
-				System.out.println();//print klo dah keluar
-				//"SELESAI_VAKSIN+" "+this.name+" "+...
+			}
+			while (antri.checkBangkuKosong()){
+				antri.bangkuKosong();
 			}
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
+		System.out.println();
 	}
 	//buat STRING_NAMA
 	public void selesai(String  x) {
-
+		System.out.println("SELESAI_NAMA");
 		if (!antri.isEmpty()) {
 // 			manggil QueueArray
 // 			ampe namanya sama
-			antri.learn.removeByData(x);
-			System.out.print("SELESAI_VAKSIN"+x+" \n");//print klo dah keluar
-			
-			//"SELESAI_VAKSIN+" "+this.name+" "+...
-
+			antri.selesaiByNama(x);
+			antri.checkBangkuKosong();
+			System.out.print(" "+x);//print klo dah keluar
 		}else{
 			System.out.println("ANTRE KOSONG");
 		}
 	}
 	
-	
-	
 	public void ukuran(int ukuran) {
 		System.out.println("SUKSES UBAH " + antri.maxLength + " " + ukuran);
-		antri.maxLength=ukuran;
+		if (antri.maxLength<ukuran){
+			antri.maxLength=ukuran;
+			antri.arrayDoubling(antri.maxLength);
+		}else {
+			antri.maxLength=ukuran;
+			antri.arrayDecreasing(antri.maxLength);
+		}
 	}
 	public void skip(String nama) {
 
@@ -177,8 +178,11 @@ public class Main {
             }else if(words[0].equalsIgnoreCase("selesai")) {
             	if(words[1].length()<=2) {
             		int index=Integer.parseInt(words[1]);
+			System.out.print("SELESAI_VAKSIN");	
             		try{
-            			learn.selesai(index);
+			   for (int i =0;i<index;i++){
+				learn.selesai(index);
+			   }
             		}catch(Exception e) {
             			System.err.println(e.getMessage());
             		}
