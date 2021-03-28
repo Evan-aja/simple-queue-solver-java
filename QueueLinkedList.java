@@ -1,12 +1,12 @@
 package tugas_1;
 
 public class QueueLinkedList {
-	DoublyLinkedList learn=new DoublyLinkedList();
-	Listing front,rear;
+	tugas_1.DoublyLinkedList learn=new DoublyLinkedList();
 	int maxLength=0;
 	int[] usia ;
 	int[]tensi ;
 	int index=0;
+	tugas_1.Listing front,rear;
 	
 	public QueueLinkedList(int a) {
 		this.maxLength=a;
@@ -25,13 +25,14 @@ public class QueueLinkedList {
 	public boolean isEmpty() {
 		return learn.isEmpty();
 	}
-	public void enqueue(Object x) {
+	public void enqueue(Object x, int usia,int tensi) {
 		if(learn.size<=maxLength) {
 			learn.addLast(x);
 			fhrt();
 			//buat yg lain
 			this.usia[index]=usia;
 			this.tensi[index]=tensi;
+			index++;
 		}else {
 			System.out.println("List penuh");
 		}
@@ -65,6 +66,39 @@ public class QueueLinkedList {
 	public void print() {
 		learn.printToTail();
 	}
+	public void arrayDoubling(int x){
+		int[] oldUsia = usia;
+		int[] oldTensi = tensi;
+		usia = new int[x];
+		tensi = new int[x];
+		System.arraycopy(oldUsia,0,usia,0,oldUsia.length);
+		System.arraycopy(oldTensi,0,tensi,0,oldTensi.length);
+		while (index<maxLength) {//2 4 | 423414  4ilang,2ilang,3ilang tunggu = 414  2slot jdi 5 == 2,4,4,2,3
+			usia[index] = masuk.tunggu.umur[0];
+			tensi[index] = masuk.tunggu.tensi[0];
+			try {
+				learn.addLast(masuk.tunggu.dequeue());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			index++;
+		}
+	}
+	public void arrayDecreasing(int x){
+		int[] oldUsia = usia;
+		int[] oldTensi = tensi;
+		int minus=0;
+		while (index>maxLength) {// 5 4 3 1 | 2 1 dari 4 jadi 2 -> 5 4 | 2 1 3 1
+			masuk.tunggu.enqueue(learn.removeLast(),usia[index-1],tensi[index-1]);
+			index--;
+			minus++;
+		}
+		usia = new int[x];
+		tensi = new int[x];
+		System.arraycopy(oldUsia,0,usia,0,oldUsia.length-minus);
+		System.arraycopy(oldTensi,0,tensi,0,oldTensi.length-minus);
+	}
+
 	//check prioritas lansia
 	public void checkPriority(){
 		boolean aktif=false;
@@ -102,10 +136,10 @@ public class QueueLinkedList {
 //				temp = this.usia[i];
 //				tempp = this.tensi[i];
 				learn.insertByIndex(i+1,x);
-				tangkepNama = learn.tail.data;
-				learn.removeLast();
-				tunggu.enqueue(tangkepNama,maxLength-1,maxLength-1);
+				tangkepNama = learn.removeLast();
+				tunggu.enqueue(tangkepNama,this.usia[maxLength-1],this.tensi[maxLength-1]);
 				System.arraycopy(this.usia,i,this.usia,i+1,i+1);
+				System.arraycopy(this.tensi,i,this.tensi,i+1,i+1);
 				this.usia[i]=usia;
 				this.tensi[i] = tensi;
 				aktif = true;
@@ -117,5 +151,32 @@ public class QueueLinkedList {
 			tunggu.enqueue(x, usia, tensi);
 			System.out.println("ANTRE"+x);
 		}
+	}
+	public boolean checkBangkuKosong(){
+		return index<maxLength;
+	}
+	public void bangkuKosong() throws Exception {
+		int umur,tensi;
+		umur = masuk.tunggu.umur[0];
+		tensi = masuk.tunggu.tensi[0];
+		masuk.antri.enqueue(masuk.tunggu.dequeue(),umur,tensi);
+	}
+	public Object selesaiByNama(String x){
+		Listing p = learn.head;
+		int i =0;
+		while (p!=null){
+			if (p.data.equals(x)){
+				break;
+			}
+			i++;
+			p=p.next;
+		}
+		if (p != null) {// 13 45 66
+			System.arraycopy(usia,i+1,usia,i,usia.length-(1+i));
+			System.arraycopy(tensi,i+1,tensi,i,tensi.length-(1+i));
+			learn.removeByIndex(i);
+			return p.data;
+		}
+		return null;
 	}
 }
