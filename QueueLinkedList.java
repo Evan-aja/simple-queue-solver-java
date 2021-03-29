@@ -175,8 +175,31 @@ public class QueueLinkedList {
 			System.arraycopy(usia,i+1,usia,i,usia.length-(1+i));
 			System.arraycopy(tensi,i+1,tensi,i,tensi.length-(1+i));
 			learn.removeByIndex(i);
+			index--;
 			return p.data;
 		}
 		return null;
+	}
+	public void skip(String nama) throws Exception {
+		Listing p = learn.head;
+		int i =0;
+		while (p!=null){
+			if (p.data.equals(nama)){
+				break;
+			}
+			i++;
+			p=p.next;
+		}
+		if (p != null) {
+			masuk.tunggu.enqueue(p.data,usia[i],tensi[i]);
+			learn.removeByIndex(i);
+			System.arraycopy(usia,i+1,usia,i,usia.length-(1+i));
+			System.arraycopy(tensi,i+1,tensi,i,tensi.length-(1+i));
+			//angka 6 7 8 | 1 2
+			this.usia[i] = masuk.tunggu.umur[0];
+			tensi[i] = masuk.tunggu.tensi[0];
+			learn.addLast(masuk.tunggu.dequeue());
+
+		}
 	}
 }
