@@ -1,6 +1,9 @@
 package tugas_1;
 import java.util.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 class masuk{
 	static QueueArray tunggu;
@@ -148,11 +151,27 @@ class masuk{
 		return "TUNGGU"+" "+this.nama;
 	}
 }
-//"/C:\\Users\\alrav\\Dev\\Kuliah\\Semester-2\\Algorithhm Structure Data\\Practicise\\Tugas01\\tes.txt"
 public class Main {
 	public static void main(String[] args) throws Exception {
 		masuk learn=new masuk();
-		FileReader fr = new FileReader("/C:\\Users\\alrav\\Dev\\Kuliah\\Semester-2\\Algorithhm Structure Data\\Practicise\\Tugas01\\tes.txt");
+		Scanner scan=new Scanner(System.in);
+		String alamat;
+		while(true) {
+			System.out.println("Mohon masukkan direktori file txt anda secara lengkap");
+			System.out.println("contoh = /home/user/Documents/tes.txt");
+			String lokasi=scan.nextLine();
+			Path jalur= Paths.get(lokasi);
+			if(Files.exists(jalur)==true) {
+				alamat=jalur.toString();
+				System.out.println("direktori benar");
+				break;
+			}else {
+				System.out.println("direktori salah, mohon ketik kembali");
+				continue;
+			}
+		}
+		scan.close();
+		FileReader fr = new FileReader(alamat);
 		Scanner inFile = new Scanner(fr);
 		while (inFile.hasNext())
 		{
