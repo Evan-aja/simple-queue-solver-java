@@ -1,4 +1,4 @@
-package tugas_1;
+package ASD;
 
 public class QueueArray {
 	private static final int initSize=1;
