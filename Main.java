@@ -145,10 +145,10 @@ class masuk{
 		return "TOLAK"+" "+this.nama+" "+tulisanLansia()+" "+tulisanTensi();
 	}
 	public String antrePasien(){
-		return "ANTRE"+" "+this.nama;
+		return "ANTRE"+" "+this.nama+" "+this.usia;
 	}
 	public String tungguPasien(){
-		return "TUNGGU"+" "+this.nama;
+		return "TUNGGU"+" "+this.nama+" "+this.usia;
 	}
 }
 public class Main {
