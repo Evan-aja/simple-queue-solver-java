@@ -143,7 +143,7 @@ public class QueueLinkedList {
 				this.usia[i]=usia;
 				this.tensi[i] = tensi;
 				aktif = true;
-				System.out.println("ANTRE "+x+" TUNGGU "+tangkepNama);
+				System.out.println("ANTRE "+x+" LANSIA "+"TUNGGU "+tangkepNama+" BUKAN_LANSIA");
 				break;
 			}
 		}
