@@ -1,12 +1,12 @@
-package tugas_1;
+package ASD;
 
 public class QueueLinkedList {
-	tugas_1.DoublyLinkedList learn=new DoublyLinkedList();
+	ASD.DoublyLinkedList learn=new DoublyLinkedList();
 	int maxLength=0;
 	int[] usia ;
 	int[]tensi ;
 	int index=0;
-	tugas_1.Listing front,rear;
+	ASD.Listing front,rear;
 	
 	public QueueLinkedList(int a) {
 		this.maxLength=a;
@@ -133,8 +133,6 @@ public class QueueLinkedList {
 			int tempp;
 			Object tangkepNama;
 			if (this.usia[i]<60){
-//				temp = this.usia[i];
-//				tempp = this.tensi[i];
 				learn.insertByIndex(i+1,x);
 				tangkepNama = learn.removeLast();
 				tunggu.enqueue(tangkepNama,this.usia[maxLength-1],this.tensi[maxLength-1]);
