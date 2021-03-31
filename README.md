@@ -1,23 +1,11 @@
 # ASD-Tugas-1
-\n cek lgi semua codenya gw ubaaah (rappie)
-yok kelompok :v
+Proyek kelompok penugasan ASD
 
-# please read
-
-clone repo, tes tes.txt di komputer masing masing untuk melihat output di komputer masing masing
-
-
-baru() (setengah selesai) (rappie)
-
-status() (status)
-
-selesai() (rappie)
-
-ukuran() (ihsan) (udah Evan)
-
-skip() (ihsan)
-
-
-main() (evan)
-
-deadline malam minggu 27 maret
+# Perihal Build sendiri
+1. Buat folder "ASD"
+2. extrak source code didalam folder "ASD"
+3. buka terminal di dalam folder "ASD"
+4. jalankan command : javac *.java
+5. keluar dari folder "ASD"
+6. jalankan command : ASD.Main
+7. selesai
