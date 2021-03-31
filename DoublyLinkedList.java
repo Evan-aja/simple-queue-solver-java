@@ -1,4 +1,4 @@
-package tugas_1;
+package ASD;
 class Listing{
 	Object data;
 	Listing next;
@@ -154,29 +154,6 @@ public class DoublyLinkedList {
 		}
 		return null;
 	}
-//	public int reoveByData(Object x) {
-//		int i = 0;
-//		if(head.data.equals(x)) {
-//			removeFirst();
-//			return i;
-//		}else if(tail.data.equals(x)) {
-//			removeLast();
-//			return size-1;
-//		}else {
-//			Listing search=head;
-//			while(search.data != x) {
-//				if(search.data.equals(x)) {
-//					break;
-//				}
-//				search=search.next;
-//				i++;
-//			}
-//			search.next.prev=search.prev;
-//			search.prev.next=search.next;
-//			size--;
-//			return i;
-//		}
-//	}
 	public void removeByIndex(int x) {
 		x+=1;
 		Listing search=head;
