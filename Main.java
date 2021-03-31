@@ -1,4 +1,4 @@
-package tugas_1;
+package ASD;
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
@@ -13,9 +13,6 @@ class masuk{
 	int usia, tensi;
 
 	masuk(){
-		/*ini buat invoke QueueArray biar ga null
-		ntar eror soalnya klo ga di set
-	 	*/
 		tunggu = new QueueArray();
 	}
 	public void initUkuran(int ukuran) {
@@ -60,8 +57,6 @@ class masuk{
 	//buat STRING_NAMA
 	public void selesai(String  x) throws Exception {
 		if (!antri.isEmpty()) {
-// 			manggil QueueArray
-// 			ampe namanya sama
 			antri.selesaiByNama(x);
 			if (antri.checkBangkuKosong()&&tunggu.itemCount!=0){
 				antri.bangkuKosong();
