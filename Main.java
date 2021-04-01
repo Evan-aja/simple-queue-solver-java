@@ -154,28 +154,10 @@ class masuk{
 public class Main {
 	public static void main(String[] args) throws Exception {
 		masuk learn=new masuk();
-		Scanner scan=new Scanner(System.in);
-		String alamat;
-		while(true) {
-			System.out.println("Mohon masukkan direktori file txt anda secara lengkap");
-			System.out.println("contoh = /home/user/Documents/tes.txt");
-			String lokasi=scan.nextLine();
-			Path jalur= Paths.get(lokasi);
-			if(Files.exists(jalur)==true) {
-				alamat=jalur.toString();
-				System.out.println("direktori benar");
-				break;
-			}else {
-				System.out.println("direktori salah, mohon ketik kembali");
-				continue;
-			}
-		}
-		scan.close();
-		FileReader fr = new FileReader(alamat);
-		Scanner inFile = new Scanner(fr);
-		while (inFile.hasNext())
+		Scanner scan = new Scanner(System.in);
+		while (scan.hasNext())
 		{
-			String line = inFile.nextLine();
+			String line = scan.nextLine();
 			String[] words = line.trim().split(" ");
 			if(words[0].length()<=3) {
 				int ukuran=Integer.parseInt(words[0]);
@@ -212,6 +194,6 @@ public class Main {
 				learn.skip(nama);
 			}
 		}
-		inFile.close();
+		scan.close();
 	}
 }
