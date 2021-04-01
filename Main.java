@@ -5,6 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+// 1. Al'Ravie Mutiar Mahesa/205150200111041
+// 2. Arundaon Ramadhani Yudistira/205150200111031
+// 3. Gabrielle Evan Farrel/205150201111033
+// 4. Miftahul Ihsan/205150201111034
+	
 class masuk{
 	static QueueArray tunggu;
 	static QueueLinkedList antri;
