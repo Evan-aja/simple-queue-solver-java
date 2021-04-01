@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 // 1. Al'Ravie Mutiar Mahesa/205150200111041
 // 2. Arundaon Ramadhani Yudistira/205150200111031
 // 3. Gabrielle Evan Farrel/205150201111033
@@ -16,7 +15,6 @@ class masuk{
 	static int ukuran;
 	String nama;
 	int usia, tensi;
-
 	masuk(){
 		tunggu = new QueueArray();
 	}
@@ -27,7 +25,6 @@ class masuk{
 		this.nama=nama;
 		this.usia=usia;
 		this.tensi=tensi;
-
 		//buat cek masuk ke baris mana
 		if (!checkIsBolehVaksin()){
 			System.out.println(tolakPasien());
@@ -42,7 +39,6 @@ class masuk{
 			System.out.println(tungguPasien());
 		}
 	}
-
 	public void selesai(int N) throws Exception {
 		if (!antri.isEmpty()) {
 			for (int i = 0; i < N; i++) {
@@ -90,7 +86,6 @@ class masuk{
 			}
 		}
 		String daftarTunggu = "DAFTAR_TUNGGU ";
-
 		if(masuk.tunggu.isEmpty()){
 			daftarTunggu+="-";
 		}
@@ -100,10 +95,7 @@ class masuk{
 			}
 		}
 		System.out.println(daftarAntre+"\n"+daftarTunggu) ;
-
-
 	}
-
 	public void ukuran(int ukuran) {
 		System.out.println("SUKSES UBAH " + antri.maxLength + " " + ukuran);
 		if (antri.maxLength<ukuran){
@@ -154,10 +146,28 @@ class masuk{
 public class Main {
 	public static void main(String[] args) throws Exception {
 		masuk learn=new masuk();
-		Scanner scan = new Scanner(System.in);
-		while (scan.hasNext())
+		Scanner scan=new Scanner(System.in);
+		String alamat;
+		while(true) {
+			System.out.println("Mohon masukkan direktori file txt anda secara lengkap");
+			System.out.println("contoh = /home/user/Documents/tes.txt");
+			String lokasi=scan.nextLine();
+			Path jalur= Paths.get(lokasi);
+			if(Files.exists(jalur)==true) {
+				alamat=jalur.toString();
+				System.out.println("direktori benar");
+				break;
+			}else {
+				System.out.println("direktori salah, mohon ketik kembali");
+				continue;
+			}
+		}
+		scan.close();
+		FileReader fr = new FileReader(alamat);
+		Scanner inFile = new Scanner(fr);
+		while (inFile.hasNext())
 		{
-			String line = scan.nextLine();
+			String line = inFile.nextLine();
 			String[] words = line.trim().split(" ");
 			if(words[0].length()<=3) {
 				int ukuran=Integer.parseInt(words[0]);
@@ -194,6 +204,6 @@ public class Main {
 				learn.skip(nama);
 			}
 		}
-		scan.close();
+		inFile.close();
 	}
 }
